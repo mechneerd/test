@@ -1,5 +1,7 @@
-<?php 
+﻿<?php 
 
+
+$id = $_GET['id'];
 
 $servername = "localhost";
 $username="root";
@@ -13,11 +15,11 @@ if($con->connect_error){
 		}
 
 
-$alter = "ALTER TABLE websitename ADD COLUMN foreignkey INT(5)";
+$del = "DELETE FROM formdata WHERE emp_id=$id";
 
 
-if($con->query($alter)===TRUE){
-	//header("Location:displaydbdata.php ");
+if($con->query($del)===TRUE){
+	header("Location:displaydbdata.php ");
 }else{
 	echo 'error deleting the selected row'.$con->error;}
 
